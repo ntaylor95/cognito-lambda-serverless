@@ -1,0 +1,25 @@
+service: cognito-lambda-serverless
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'dev'}
+  memorySize: 512
+  timeout: 30
+  logRetentionInDays: 7
+  # deploymentBucket:
+  #   name: uship-${self:provider.region}-${self:provider.stage}-deployment-bucket
+
+plugins:
+  - serverless-offline
+
+functions:
+  index:
+    handler: handler.hello
+    events:
+      - http: GET hello
+  confirm:
+    handler: handler.confirm
+    events:
+      - http: GET confirm      
