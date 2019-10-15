@@ -5,7 +5,7 @@
       "name": "cognito-lambda-serverless"
     },
     "provider": {
-      "stage": "qa",
+      "stage": "dev",
       "variableSyntax": "\\${([ ~:a-zA-Z0-9._@'\",\\-\\/\\(\\)*]+?)}",
       "name": "aws",
       "runtime": "nodejs10.x",
@@ -36,21 +36,21 @@
           "IndexLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-qa-index",
+              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-dev-index",
               "RetentionInDays": 7
             }
           },
           "ConfirmLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-qa-confirm",
+              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-dev-confirm",
               "RetentionInDays": 7
             }
           },
           "HealthcheckLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-qa-healthcheck",
+              "LogGroupName": "/aws/lambda/cognito-lambda-serverless-dev-healthcheck",
               "RetentionInDays": 7
             }
           },
@@ -79,7 +79,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "qa",
+                        "dev",
                         "cognito-lambda-serverless",
                         "lambda"
                       ]
@@ -95,7 +95,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cognito-lambda-serverless-qa*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cognito-lambda-serverless-dev*:*"
                           }
                         ]
                       },
@@ -106,7 +106,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cognito-lambda-serverless-qa*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/cognito-lambda-serverless-dev*:*:*"
                           }
                         ]
                       }
@@ -120,7 +120,7 @@
                   "-",
                   [
                     "cognito-lambda-serverless",
-                    "qa",
+                    "dev",
                     {
                       "Ref": "AWS::Region"
                     },
@@ -137,9 +137,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cognito-lambda-serverless/qa/1571158172127-2019-10-15T16:49:32.127Z/cognito-lambda-serverless.zip"
+                "S3Key": "serverless/cognito-lambda-serverless/dev/1571158709100-2019-10-15T16:58:29.100Z/cognito-lambda-serverless.zip"
               },
-              "FunctionName": "cognito-lambda-serverless-qa-index",
+              "FunctionName": "cognito-lambda-serverless-dev-index",
               "Handler": "handler.hello",
               "MemorySize": 512,
               "Role": {
@@ -156,14 +156,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "IndexLambdaVersion0KjGbCUlYgJpWc7pNZ9Na6L06UPZA9RMJahZQtHSJYM": {
+          "IndexLambdaVersion0vekxglwUig6yIDZhtivS0c3efkGfLZemFkBvmZJc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "IndexLambdaFunction"
               },
-              "CodeSha256": "/oEaUy9weDt0JzPmxoGZda4YdCJIkbqy8cN4gWK+lag="
+              "CodeSha256": "xuDZF8InBEbQieexOyDegW2luWWJLxPEipxSVTtLZl0="
             }
           },
           "ConfirmLambdaFunction": {
@@ -173,9 +173,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cognito-lambda-serverless/qa/1571158172127-2019-10-15T16:49:32.127Z/cognito-lambda-serverless.zip"
+                "S3Key": "serverless/cognito-lambda-serverless/dev/1571158709100-2019-10-15T16:58:29.100Z/cognito-lambda-serverless.zip"
               },
-              "FunctionName": "cognito-lambda-serverless-qa-confirm",
+              "FunctionName": "cognito-lambda-serverless-dev-confirm",
               "Handler": "handler.confirm",
               "MemorySize": 512,
               "Role": {
@@ -192,14 +192,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ConfirmLambdaVersionIKissXWXhxti4V7YoU6pkshJxu9EkJTcjEjWIA1k": {
+          "ConfirmLambdaVersionERuSMWEYN3RmhKf6cWvzSEGxomtCW0YCNe6JwDuDZGQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ConfirmLambdaFunction"
               },
-              "CodeSha256": "/oEaUy9weDt0JzPmxoGZda4YdCJIkbqy8cN4gWK+lag="
+              "CodeSha256": "xuDZF8InBEbQieexOyDegW2luWWJLxPEipxSVTtLZl0="
             }
           },
           "HealthcheckLambdaFunction": {
@@ -209,9 +209,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/cognito-lambda-serverless/qa/1571158172127-2019-10-15T16:49:32.127Z/cognito-lambda-serverless.zip"
+                "S3Key": "serverless/cognito-lambda-serverless/dev/1571158709100-2019-10-15T16:58:29.100Z/cognito-lambda-serverless.zip"
               },
-              "FunctionName": "cognito-lambda-serverless-qa-healthcheck",
+              "FunctionName": "cognito-lambda-serverless-dev-healthcheck",
               "Handler": "handler.healthcheck",
               "MemorySize": 512,
               "Role": {
@@ -228,20 +228,20 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "HealthcheckLambdaVersionNZT9LTHGy4dB19CkSHa6NEoV5ppUvNui3kXILOWGoUE": {
+          "HealthcheckLambdaVersionICXenHA9GqhCySH4LDdeZTatQuuThdkTOYmneVQhVo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "HealthcheckLambdaFunction"
               },
-              "CodeSha256": "/oEaUy9weDt0JzPmxoGZda4YdCJIkbqy8cN4gWK+lag="
+              "CodeSha256": "xuDZF8InBEbQieexOyDegW2luWWJLxPEipxSVTtLZl0="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "qa-cognito-lambda-serverless",
+              "Name": "dev-cognito-lambda-serverless",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -423,13 +423,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1571158158891": {
+          "ApiGatewayDeployment1571158695344": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               },
-              "StageName": "qa"
+              "StageName": "dev"
             },
             "DependsOn": [
               "ApiGatewayMethodHelloGet",
@@ -558,19 +558,19 @@
           "IndexLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "IndexLambdaVersion0KjGbCUlYgJpWc7pNZ9Na6L06UPZA9RMJahZQtHSJYM"
+              "Ref": "IndexLambdaVersion0vekxglwUig6yIDZhtivS0c3efkGfLZemFkBvmZJc"
             }
           },
           "ConfirmLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ConfirmLambdaVersionIKissXWXhxti4V7YoU6pkshJxu9EkJTcjEjWIA1k"
+              "Ref": "ConfirmLambdaVersionERuSMWEYN3RmhKf6cWvzSEGxomtCW0YCNe6JwDuDZGQ"
             }
           },
           "HealthcheckLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HealthcheckLambdaVersionNZT9LTHGy4dB19CkSHa6NEoV5ppUvNui3kXILOWGoUE"
+              "Ref": "HealthcheckLambdaVersionICXenHA9GqhCySH4LDdeZTatQuuThdkTOYmneVQhVo"
             }
           },
           "ServiceEndpoint": {
@@ -591,13 +591,13 @@
                   {
                     "Ref": "AWS::URLSuffix"
                   },
-                  "/qa"
+                  "/dev"
                 ]
               ]
             }
           },
           "functionPrefix": {
-            "Value": "hello-qa"
+            "Value": "hello-dev"
           }
         }
       },
@@ -642,7 +642,7 @@
             "http": "GET hello"
           }
         ],
-        "name": "cognito-lambda-serverless-qa-index",
+        "name": "cognito-lambda-serverless-dev-index",
         "package": {},
         "memory": 512,
         "timeout": 30,
@@ -656,7 +656,7 @@
             "http": "GET confirm"
           }
         ],
-        "name": "cognito-lambda-serverless-qa-confirm",
+        "name": "cognito-lambda-serverless-dev-confirm",
         "package": {},
         "memory": 512,
         "timeout": 30,
@@ -670,7 +670,7 @@
             "http": "GET healthcheck"
           }
         ],
-        "name": "cognito-lambda-serverless-qa-healthcheck",
+        "name": "cognito-lambda-serverless-dev-healthcheck",
         "package": {},
         "memory": 512,
         "timeout": 30,
@@ -681,7 +681,7 @@
     "resources": {
       "Outputs": {
         "functionPrefix": {
-          "Value": "hello-qa"
+          "Value": "hello-dev"
         }
       },
       "Resources": {}
@@ -691,7 +691,7 @@
     "artifact": "/Users/nicoletaylor/Documents/GitHub/cognito-lambda-serverless/.serverless/cognito-lambda-serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/cognito-lambda-serverless/qa/1571158172127-2019-10-15T16:49:32.127Z",
+    "artifactDirectoryName": "serverless/cognito-lambda-serverless/dev/1571158709100-2019-10-15T16:58:29.100Z",
     "artifact": "cognito-lambda-serverless.zip"
   }
 }

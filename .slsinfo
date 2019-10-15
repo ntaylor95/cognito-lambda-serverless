@@ -1,27 +1,27 @@
 Service Information
 service: cognito-lambda-serverless
-stage: qa
+stage: dev
 region: us-east-1
-stack: cognito-lambda-serverless-qa
+stack: cognito-lambda-serverless-dev
 resources: 22
 api keys:
   None
 endpoints:
-  GET - https://tvvvoz17dk.execute-api.us-east-1.amazonaws.com/qa/hello
-  GET - https://tvvvoz17dk.execute-api.us-east-1.amazonaws.com/qa/confirm
-  GET - https://tvvvoz17dk.execute-api.us-east-1.amazonaws.com/qa/healthcheck
+  GET - https://bzn23kcbqb.execute-api.us-east-1.amazonaws.com/dev/hello
+  GET - https://bzn23kcbqb.execute-api.us-east-1.amazonaws.com/dev/confirm
+  GET - https://bzn23kcbqb.execute-api.us-east-1.amazonaws.com/dev/healthcheck
 functions:
-  index: cognito-lambda-serverless-qa-index
-  confirm: cognito-lambda-serverless-qa-confirm
-  healthcheck: cognito-lambda-serverless-qa-healthcheck
+  index: cognito-lambda-serverless-dev-index
+  confirm: cognito-lambda-serverless-dev-confirm
+  healthcheck: cognito-lambda-serverless-dev-healthcheck
 layers:
   None
 
 Stack Outputs
-functionPrefix: hello-qa
-IndexLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-qa-index:1
-ConfirmLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-qa-confirm:1
-HealthcheckLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-qa-healthcheck:1
-ServiceEndpoint: https://tvvvoz17dk.execute-api.us-east-1.amazonaws.com/qa
-ServerlessDeploymentBucketName: cognito-lambda-serverles-serverlessdeploymentbuck-wysugq3mrqyo
+functionPrefix: hello-dev
+IndexLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-dev-index:4
+ConfirmLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-dev-confirm:4
+HealthcheckLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:073384980128:function:cognito-lambda-serverless-dev-healthcheck:1
+ServiceEndpoint: https://bzn23kcbqb.execute-api.us-east-1.amazonaws.com/dev
+ServerlessDeploymentBucketName: cognito-lambda-serverles-serverlessdeploymentbuck-5rv0ymr86isq
 

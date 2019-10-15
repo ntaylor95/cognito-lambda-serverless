@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run sls:info && sls offline start --stage qa",
     "sls:info": "sls info --verbose --stage qa | tee .slsinfo",
-    "sls:deploy:dev": "npm run sls:info && sls deploy -v --stage qa"
+    "sls:deploy:dev": "sls info --verbose --stage dev | tee .slsinfo && sls deploy -v --stage dev",
+    "sls:deploy:qa": "sls info --verbose --stage qa | tee .slsinfo && sls deploy -v --stage qa"
   },
   "author": "",
   "license": "ISC",
