@@ -5,7 +5,9 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "sls offline start"
+    "start": "npm run sls:info && sls offline start --stage qa",
+    "sls:info": "sls info --verbose --stage qa | tee .slsinfo",
+    "sls:deploy:dev": "npm run sls:info && sls deploy -v --stage qa"
   },
   "author": "",
   "license": "ISC",

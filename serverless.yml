@@ -11,6 +11,9 @@ provider:
   # deploymentBucket:
   #   name: uship-${self:provider.region}-${self:provider.stage}-deployment-bucket
 
+environment:
+  STAGE: ${self:provider.stage}
+  
 plugins:
   - serverless-offline
 
@@ -22,4 +25,13 @@ functions:
   confirm:
     handler: handler.confirm
     events:
-      - http: GET confirm      
+      - http: GET confirm  
+  healthcheck:
+    handler: handler.healthcheck
+    events:
+      - http: GET healthcheck
+
+resources: 
+  Outputs:
+    functionPrefix:
+      Value: hello-${self:provider.stage}
